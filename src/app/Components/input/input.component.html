@@ -1,1 +1,23 @@
-<p>input works!</p>
+<div class="col-md-8 mb-3">
+  <div class="form-outline" [formGroup]="formGroup">
+    <input
+      [type]="type"
+      class="form-control"
+      [formControlName]="control"
+      [required]="required"
+      placeholder="{{ label }}"
+    />
+  </div>
+  <div
+    *ngIf="
+      formGroup.controls[control].invalid && formGroup.controls[control].touched
+    "
+  >
+    <div
+      *ngIf="formGroup.controls[control].errors?.['required']"
+      class="text-danger"
+    >
+      This field is required
+    </div>
+  </div>
+</div>

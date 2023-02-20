@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "name": "firstName",
+      "label": "First name:",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true,
+        "minLength": 3
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last name:",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true,
+        "pattern": "^[a-zA-Z]+$"
+      }
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "value": "",
+      "type": "textarea",
+      "validators": {}
+    },
+    {
+      "name": "agreeTerms",
+      "value": "Terms and Condition",
+      "type": "checkbox",
+      "validators": {}
+    }
+  ]
+}

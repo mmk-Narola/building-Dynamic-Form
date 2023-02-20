@@ -1,0 +1,86 @@
+<div class="container">
+  <h3 class="text-center mt-4">DynamicForm with JSON</h3>
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-8">
+        <div
+          *ngFor="let field of formFields"
+          class="form-row"
+          [ngSwitch]="field.type"
+        >
+          <label class="col-md-2 form-control-label" [attr.for]="field.label">
+            {{ field.label }}
+            <strong class="text-danger" *ngIf="field.validators.required">
+              *
+            </strong>
+          </label>
+          <div class="col-md-6 mb-2">
+            <div *ngSwitchCase="'text'">
+              <input
+                [type]="field.type"
+                [id]="field.name"
+                [formControlName]="field.name"
+                class="form-control"
+              />
+            </div>
+            <div *ngSwitchCase="'textarea'">
+              <textarea
+                [id]="field.name"
+                class="form-control"
+                [formControlName]="field.name"
+              >
+              </textarea>
+            </div>
+            <div *ngSwitchCase="'checkbox'">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckbox1"
+                  [formControlName]="field.name"
+                />
+                {{ field.value }}
+              </label>
+            </div>
+          </div>
+
+          <div
+            *ngIf="
+              dynamicForm.get(field.name)?.errors?.['required'] &&
+              dynamicForm.get(field.name)?.dirty
+            "
+            class="alert alert-danger col-md-6 p-2 fadeInDown animated"
+          >
+            This Field is required
+          </div>
+          <div
+            *ngIf="
+              dynamicForm.get(field.name)?.errors?.['minlength']
+            "
+            class="alert alert-danger col-md-6 p-2 fadeInDown animated"
+          >
+            Minimum Text
+          </div>
+          <div
+            *ngIf="
+              dynamicForm.get(field.name)?.errors?.['pattern']
+            "
+            class="alert alert-danger col-md-6 p-2 fadeInDown animated"
+          >
+            Only Text Accept
+          </div>
+        </div>
+        <button
+          type="submit"
+          [disabled]="dynamicForm.invalid"
+          class="btn btn-success"
+        >
+          Submit
+        </button>
+      </div>
+      <div class="col-sm-4">
+        {{ dynamicForm.value | json }}
+      </div>
+    </div>
+  </form>
+</div>

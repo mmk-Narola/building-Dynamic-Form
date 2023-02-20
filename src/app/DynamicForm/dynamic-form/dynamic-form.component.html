@@ -75,7 +75,7 @@
                   [formControlName]="field.name"
                   class="form-control"
                 >
-                  <option value="">Select State</option>
+                  <option value="">Select {{ field.label }}</option>
                   <option *ngFor="let item of field.option" [value]="item.key">
                     {{ item.value }}
                   </option>

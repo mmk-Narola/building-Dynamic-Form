@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <h4 class="text-center">Dynamic Form Control with Model File</h4>
+    <div class="row">
+      <div class="col-sm-8">
+        <section *ngFor="let field of formFields" class="form-row">
+          <app-form-fields [field]="field" [userForm]="userForm">
+          </app-form-fields>
+        </section>
+        <button
+          type="submit"
+          class="btn btn-success col-6 mt-2 mb-2"
+          [disabled]="userForm.invalid"
+        >
+          Submit
+        </button>
+      </div>
+      <div class="col-sm-4">
+        {{ userForm.value | json }}
+      </div>
+    </div>
+  </div>
+</form>

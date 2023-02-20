@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { formFieldData } from '../formField';
+import { formFieldData } from '../formFields';
 
 @Component({
-  selector: 'app-dynamic-form',
-  templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.scss'],
+  selector: 'app-reusablecomp-form',
+  templateUrl: './reusablecomp-form.component.html',
+  styleUrls: ['./reusablecomp-form.component.scss'],
 })
-export class DynamicFormComponent implements OnInit {
-  dynamicForm: FormGroup;
-  buildingForm = formFieldData;
+export class ReusablecompFormComponent implements OnInit {
+  formField = formFieldData;
+  reusableComDyanicform: FormGroup;
+  isSubmiit = false;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.dynamicForm = this.formControl();
+    this.reusableComDyanicform = this.formControl();
   }
 
   formControl() {
     const group = this.fb.group({});
-    this.buildingForm.forEach((field) => {
+    this.formField.forEach((field) => {
       const control = this.fb.control(
         '',
         this.validators(field.validations || [])
@@ -39,10 +40,11 @@ export class DynamicFormComponent implements OnInit {
     return null;
   }
 
-  Submit() {
-    if (this.dynamicForm.invalid) {
+  ngSubmit() {
+    this.isSubmiit = true;
+    if (this.reusableComDyanicform.invalid) {
       return;
     }
-    console.log(this.dynamicForm.value);
+    console.log(this.reusableComDyanicform.value);
   }
 }

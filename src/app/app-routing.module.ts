@@ -14,6 +14,27 @@ const routes: Routes = [
         (m) => m.DynamicFormModule
       ),
   },
+  {
+    path: 'reusablecom-form',
+    loadChildren: () =>
+      import('./DynamicForm-ReusableCom/reusablecom-form.module').then(
+        (m) => m.ReusablecomFormModule
+      ),
+  },
+  {
+    path: 'dynamic-form-json',
+    loadChildren: () =>
+      import('./DynamicForm-JSON/dynamicform-json.module').then(
+        (m) => m.DynamicformJsonModule
+      ),
+  },
+  {
+    path: 'dynamic-form-object-model',
+    loadChildren: () =>
+      import('./DynamicForm-ObjectModel/dynamicform-object-model.module').then(
+        (m) => m.DynamicformObjectModelModule
+      ),
+  },
 ];
 
 @NgModule({

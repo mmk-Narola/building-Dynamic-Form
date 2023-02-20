@@ -1,1 +1,8 @@
-<p>selectoption works!</p>
+<div class="col-md-8 mb-3">
+  <select class="form-control" [formGroup]="formGroup">
+    <option value="">Select {{ label }}</option>
+    <option *ngFor="let item of options" [value]="item.key">
+      {{ item.value }}
+    </option>
+  </select>
+</div>
