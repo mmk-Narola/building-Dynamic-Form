@@ -21,6 +21,9 @@ interface ValidatorJSON {
 }
 
 interface OptionJSON {
+  name?: string;
+  sortname?: string;
+  _id?: string;
   label: string;
   value: string;
 }

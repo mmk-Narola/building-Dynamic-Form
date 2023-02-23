@@ -85,6 +85,11 @@ export const formFieldData: FieldConfig[] = [
         message: 'Email Required',
       },
       {
+        name: 'email',
+        validator: Validators.email,
+        message: 'Email abc@gmail.com',
+      },
+      {
         name: 'pattern',
         validator: Validators.pattern(
           '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'
@@ -112,6 +117,7 @@ export const formFieldData: FieldConfig[] = [
       },
     ],
   },
+
   // {
   //   name: 'phone',
   //   label: 'Phone',

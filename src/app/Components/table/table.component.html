@@ -1,0 +1,15 @@
+<div class="container">
+  <h3 class="text-center">Reusable Table Component</h3>
+</div>
+<table class="table table-bordered">
+  <thead class="text-center">
+    <tr>
+      <th scope="col" *ngFor="let column of columns">{{ column }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data" class="text-center">
+      <td *ngFor="let column of columns">{{ row[column] }}</td>
+    </tr>
+  </tbody>
+</table>

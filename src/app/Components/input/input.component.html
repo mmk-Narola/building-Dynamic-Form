@@ -10,7 +10,7 @@
   </div>
   <div
     *ngIf="
-      formGroup.controls[control].invalid && formGroup.controls[control].touched
+      formGroup.controls[control].invalid && formGroup.controls[control].dirty
     "
   >
     <div
@@ -18,6 +18,32 @@
       class="text-danger"
     >
       This field is required
+    </div>
+
+    <div
+      *ngIf="formGroup.controls['email'].errors?.['email']"
+      class="text-danger"
+    >
+      <div
+        *ngIf="formGroup.controls[control].errors?.['pattern']"
+        class="text-danger"
+      >
+        Email is abc@gmail.com
+      </div>
+    </div>
+
+    <div
+      *ngIf="formGroup.controls[control].errors?.['pattern']"
+      class="text-danger"
+    >
+      Text Only
+    </div>
+
+    <div
+      *ngIf="formGroup.controls[control].errors?.['minlength']"
+      class="text-danger"
+    >
+      minlength required
     </div>
   </div>
 </div>

@@ -31,12 +31,41 @@
               >
               </textarea>
             </div>
+
+            <div *ngSwitchCase="'radio'">
+              <div class="radioBtn">
+                <div class="form-check" *ngFor="let opt of field.options">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    [value]="opt.name"
+                    [formControlName]="field.name"
+                  />
+                  <label class="form-check-label"> {{ opt.name }}&nbsp; </label>
+                </div>
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'select'">
+              <select
+                [name]="field.name"
+                [id]="field.name"
+                [formControlName]="field.name"
+                class="form-control"
+                (change)="getData(field.name, $event)"
+              >
+                <option value="">Select {{ field.label }}</option>
+                <option *ngFor="let item of field.options" [value]="item._id">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
             <div *ngSwitchCase="'checkbox'">
               <label class="form-check-label">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="inlineCheckbox1"
                   [formControlName]="field.name"
                 />
                 {{ field.value }}
@@ -68,6 +97,15 @@
             class="alert alert-danger col-md-6 p-2 fadeInDown animated"
           >
             Only Text Accept
+          </div>
+
+          <div
+            *ngIf="
+              dynamicForm.get(field.name)?.errors?.['email']
+            "
+            class="alert alert-danger col-md-6 p-2 fadeInDown animated"
+          >
+            abc@gmail.com
           </div>
         </div>
         <button

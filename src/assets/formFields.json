@@ -7,7 +7,7 @@
       "type": "text",
       "validators": {
         "required": true,
-        "minLength": 3
+        "pattern": "^[a-zA-Z]+$"
       }
     },
     {
@@ -21,6 +21,72 @@
       }
     },
     {
+      "name": "email",
+      "label": "Email:",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true,
+        "email": true
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender:",
+      "value": "",
+      "type": "radio",
+      "validators": {
+        "required": true
+      },
+      "options": [
+        {
+          "_id": "1",
+          "name": "Male",
+          "sortname": "male"
+        },
+        {
+          "_id": "2",
+          "name": "Female",
+          "sortname": "female"
+        },
+        {
+          "_id": "3",
+          "name": "Other",
+          "sortname": "other"
+        }
+      ]
+    },
+    {
+      "name": "country",
+      "label": "Country:",
+      "value": "",
+      "type": "select",
+      "validators": {
+        "required": true
+      },
+      "options": []
+    },
+    {
+      "name": "state",
+      "label": "State:",
+      "value": "",
+      "type": "select",
+      "validators": {
+        "required": true
+      },
+      "options": []
+    },
+    {
+      "name": "city",
+      "label": "City:",
+      "value": "",
+      "type": "select",
+      "validators": {
+        "required": true
+      },
+      "options": []
+    },
+    {
       "name": "comments",
       "label": "Comments",
       "value": "",
@@ -28,10 +94,12 @@
       "validators": {}
     },
     {
-      "name": "agreeTerms",
+      "name": "terms",
       "value": "Terms and Condition",
       "type": "checkbox",
-      "validators": {}
+      "validators": {
+        "required": true
+      }
     }
   ]
 }

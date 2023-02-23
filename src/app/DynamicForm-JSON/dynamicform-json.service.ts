@@ -12,4 +12,8 @@ export class DynamicformJsonService {
   getFormFields(): Observable<FormField> {
     return this.http.get<FormField>('../../assets/formFields.json');
   }
+
+  getCoutntry() {
+    return this.http.get(' http://192.168.100.89:4002/api/country');
+  }
 }
