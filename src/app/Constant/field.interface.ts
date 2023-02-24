@@ -1,3 +1,7 @@
+export interface FormField1 {
+  data: FieldConfig[];
+}
+
 export interface Validator {
   name: string;
   validator: any;

@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "input",
+      "fieldType": "text",
+      "required": true,
+      "validations": [
+        {
+          "name": "required",
+          "validator": "Validators.required",
+          "message": "Name Required"
+        },
+        {
+          "name": "pattern",
+          "validator": "Validators.pattern('^[a-zA-Z]+$')",
+          "message": "Accept only Text"
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "input",
+      "fieldType": "text",
+      "required": true,
+      "validations": [
+        {
+          "name": "required",
+          "validator": "Validators.required",
+          "message": "Name Required"
+        },
+        {
+          "name": "pattern",
+          "validator": "Validators.pattern('^[a-zA-Z]+$')",
+          "message": "Accept only Text"
+        }
+      ]
+    }
+  ]
+}

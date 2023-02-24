@@ -85,6 +85,21 @@ export const formFieldData: FieldConfig[] = [
     ],
   },
   {
+    name: 'fiel',
+    label: 'Upload',
+    type: 'input',
+    fieldType: 'file',
+    required: true,
+    validations: [
+      {
+        name: 'required',
+        validator: Validators.required,
+        message: 'File Required',
+      },
+    ],
+  },
+
+  {
     name: 'gender',
     label: 'Gender',
     type: 'radio',
