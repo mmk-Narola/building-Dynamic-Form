@@ -11,14 +11,6 @@ export class AppComponent implements OnInit {
   title = 'Building-Dynamic-Forms';
   datas = formFields;
 
-  data = [
-    { Name: 'MMK', Age: 22, City: 'New York', Department: 'JS' },
-    { Name: 'YKP', Age: 23, City: 'Los Angeles', Department: 'JS' },
-    { Name: 'DNA', Age: 25, City: 'Chicago', Department: 'DotNet' },
-  ];
-
-  columns = ['Name', 'Age', 'City', 'Department'];
-
   constructor(private httpService: HttpClient) {}
 
   ngOnInit(): void {

@@ -14,6 +14,53 @@ export class DynamicFormJsonComponent implements OnInit {
   dynamicForm = this.fb.group({});
   country: any;
 
+  data = [
+    {
+      Name: 'MMK',
+      Age: 22,
+      City: 'New York',
+      Department: 'JS',
+      Education: 'BTech',
+    },
+    {
+      Name: 'YKP',
+      Age: 23,
+      City: 'California',
+      Department: 'JS',
+      Education: 'MCA',
+    },
+    {
+      Name: 'Bjj',
+      Age: 22,
+      City: 'Vegas',
+      Department: 'DotNet',
+      Education: 'BTech',
+    },
+    { Name: 'FPB', Age: 21, City: 'UK', Department: 'Web', Education: 'MTech' },
+    {
+      Name: 'SDT',
+      Age: 23,
+      City: 'Torento',
+      Department: 'Backend',
+      Education: 'MSC',
+    },
+    {
+      Name: 'FAS',
+      Age: 25,
+      City: 'Chicago',
+      Department: 'Frontend',
+      Education: 'B.E',
+    },
+    {
+      Name: 'NKS',
+      Age: 28,
+      City: 'Paris',
+      Department: 'Full Stack',
+      Education: 'BTech',
+    },
+  ];
+  columns = ['Name', 'Age', 'City', 'Department', 'Education'];
+
   constructor(
     private formService: DynamicformJsonService,
     private fb: FormBuilder,
@@ -27,7 +74,6 @@ export class DynamicFormJsonComponent implements OnInit {
   getDynamicFormField() {
     this.formService.getFormFields().subscribe((response: FormField) => {
       this.formFields = response.data;
-
       this.setDynamicFormControl(response.data);
       this.formService.getCoutntry().subscribe((res: any) => {
         this.country = res.country;
@@ -43,6 +89,9 @@ export class DynamicFormJsonComponent implements OnInit {
 
   getData(name: string, event: any) {
     const Code = event.target.value;
+
+    console.log(Code);
+    console.log(name);
 
     if (name === 'country' && Code) {
       this.http

@@ -10,9 +10,10 @@ import { CheckboxComponent } from '../Components/checkbox/checkbox.component';
 import { RadioComponent } from '../Components/radio/radio.component';
 import { SelectoptionComponent } from '../Components/selectoption/selectoption.component';
 import { TextareaComponent } from '../Components/textarea/textarea.component';
+import { TableComponent } from '../Components/table/table.component';
 
 @NgModule({
-  declarations: [DynamicFormJsonComponent],
+  declarations: [DynamicFormJsonComponent, TableComponent],
   imports: [
     CommonModule,
     DynamicformJsonRoutingModule,

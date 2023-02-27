@@ -118,6 +118,10 @@
       </div>
       <div class="col-sm-4">
         {{ dynamicForm.value | json }}
+
+        <div class="mt-4">
+          <app-table [data]="data" [columns]="columns"></app-table>
+        </div>
       </div>
     </div>
   </form>

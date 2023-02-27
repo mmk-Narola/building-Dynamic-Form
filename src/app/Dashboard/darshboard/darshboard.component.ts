@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-darshboard',
   templateUrl: './darshboard.component.html',
-  styleUrls: ['./darshboard.component.scss']
+  styleUrls: ['./darshboard.component.scss'],
 })
 export class DarshboardComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

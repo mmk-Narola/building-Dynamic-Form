@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './Components/table/table.component';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
